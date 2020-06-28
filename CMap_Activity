@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/m1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="경기" />
+
+                <Button
+                    android:id="@+id/m2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="인천" />
+
+                <Button
+                    android:id="@+id/m3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서울" />
+
+                <Button
+                    android:id="@+id/m4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="충북" />
+
+                <Button
+                    android:id="@+id/m5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="세종" />
+
+                <Button
+                    android:id="@+id/m6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대전" />
+
+                <Button
+                    android:id="@+id/m7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="충남" />
+
+                <Button
+                    android:id="@+id/m8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="경북" />
+
+                <Button
+                    android:id="@+id/m9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="강원" />
+
+                <Button
+                    android:id="@+id/m10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전북" />
+
+                <Button
+                    android:id="@+id/m11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대구" />
+
+                <Button
+                    android:id="@+id/m12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="경남" />
+
+                <Button
+                    android:id="@+id/m13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="울산" />
+
+                <Button
+                    android:id="@+id/m14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="부산" />
+
+                <Button
+                    android:id="@+id/m15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전남" />
+
+                <Button
+                    android:id="@+id/m16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="광주" />
+
+                <Button
+                    android:id="@+id/m17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="제주" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <com.naver.maps.map.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
