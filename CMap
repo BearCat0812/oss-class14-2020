@@ -1,0 +1,455 @@
+package com.example.cmap;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.naver.maps.geometry.LatLng;
+import com.naver.maps.map.CameraPosition;
+import com.naver.maps.map.MapView;
+import com.naver.maps.map.NaverMap;
+import com.naver.maps.map.OnMapReadyCallback;
+import com.naver.maps.map.overlay.InfoWindow;
+import com.naver.maps.map.overlay.Marker;
+import com.naver.maps.map.overlay.Overlay;
+import com.naver.maps.map.overlay.OverlayImage;
+
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    private MapView mapView;
+    private static NaverMap naverMap;
+
+    private Marker marker1 = new Marker();
+    private Marker marker2 = new Marker();
+    private Marker marker3 = new Marker();
+    private Marker marker4 = new Marker();
+    private Marker marker5 = new Marker();
+    private Marker marker6 = new Marker();
+    private Marker marker7 = new Marker();
+    private Marker marker8 = new Marker();
+    private Marker marker9 = new Marker();
+    private Marker marker10 = new Marker();
+    private Marker marker11 = new Marker();
+    private Marker marker12 = new Marker();
+    private Marker marker13 = new Marker();
+    private Marker marker14 = new Marker();
+    private Marker marker15 = new Marker();
+    private Marker marker16 = new Marker();
+    private Marker marker17 = new Marker();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Button m1 = (Button) findViewById(R.id.m1);
+        Button m2 = (Button) findViewById(R.id.m2);
+        Button m3 = (Button) findViewById(R.id.m3);
+        Button m4 = (Button) findViewById(R.id.m4);
+        Button m5 = (Button) findViewById(R.id.m5);
+        Button m6 = (Button) findViewById(R.id.m6);
+        Button m7 = (Button) findViewById(R.id.m7);
+        Button m8 = (Button) findViewById(R.id.m8);
+        Button m9 = (Button) findViewById(R.id.m9);
+        Button m10 = (Button) findViewById(R.id.m10);
+        Button m11 = (Button) findViewById(R.id.m11);
+        Button m12 = (Button) findViewById(R.id.m12);
+        Button m13 = (Button) findViewById(R.id.m13);
+        Button m14 = (Button) findViewById(R.id.m14);
+        Button m15 = (Button) findViewById(R.id.m15);
+        Button m16 = (Button) findViewById(R.id.m16);
+        Button m17 = (Button) findViewById(R.id.m17);
+
+        final InfoWindow infoWindow = new InfoWindow();
+
+        m1.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker1, 37.5, 127.25, R.drawable.ic_baseline_place_24, 10);
+
+                marker1.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker1);
+                        Toast.makeText(getApplication(), "경기 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m2.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker2, 37.456111, 126.705278, R.drawable.ic_baseline_place_24, 10);
+
+                marker2.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker2);
+                        Toast.makeText(getApplication(), "인천 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m3.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker3, 37.56667, 126.978056, R.drawable.ic_baseline_place_24, 10);
+
+                marker3.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker3);
+                        Toast.makeText(getApplication(), "서울 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m4.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker4, 36.995972, 127.926178, R.drawable.ic_baseline_place_24, 10);
+
+                marker4.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker4);
+                        Toast.makeText(getApplication(), "충북 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m5.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker5, 36.5, 127.266667, R.drawable.ic_baseline_place_24, 10);
+
+                marker5.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker5);
+                        Toast.makeText(getApplication(), "세종 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m6.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker6, 35.194012, 128.101959, R.drawable.ic_baseline_place_24, 10);
+
+                marker6.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker6);
+                        Toast.makeText(getApplication(), "대전 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m7.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker7, 36.476515, 127.082977, R.drawable.ic_baseline_place_24, 10);
+
+                marker7.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker7);
+                        Toast.makeText(getApplication(), "충남 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m8.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker8, 36.25, 128.75, R.drawable.ic_baseline_place_24, 10);
+
+                marker8.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker8);
+                        Toast.makeText(getApplication(), "경북 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m9.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker9, 37.53151, 129.098969, R.drawable.ic_baseline_place_24, 10);
+
+                marker9.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker9);
+                        Toast.makeText(getApplication(), "강원 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m10.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker10, 35.431582, 127.415314, R.drawable.ic_baseline_place_24, 10);
+
+                marker10.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker10);
+                        Toast.makeText(getApplication(), "전북 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m11.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker11, 35.8, 128.55, R.drawable.ic_baseline_place_24, 10);
+
+                marker11.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker11);
+                        Toast.makeText(getApplication(), "대구 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m12.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker12, 35.25, 128.25, R.drawable.ic_baseline_place_24, 10);
+
+                marker12.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker12);
+                        Toast.makeText(getApplication(), "경남 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m13.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker13, 35.538333, 129.311389, R.drawable.ic_baseline_place_24, 10);
+
+                marker13.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker13);
+                        Toast.makeText(getApplication(), "울산 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m14.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker14, 35.179444, 129.075556, R.drawable.ic_baseline_place_24, 10);
+
+                marker14.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker14);
+                        Toast.makeText(getApplication(), "부산 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m15.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker15, 34.816862, 126.464532, R.drawable.ic_baseline_place_24, 10);
+
+                marker15.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker15);
+                        Toast.makeText(getApplication(), "전남 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m16.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker16, 35.159444, 126.8525, R.drawable.ic_baseline_place_24, 10);
+
+                marker16.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker16);
+                        Toast.makeText(getApplication(), "광주 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        m17.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                setMark(marker17, 33.366667, 126.533333, R.drawable.ic_baseline_place_24, 10);
+
+                marker17.setOnClickListener(new Overlay.OnClickListener() {
+                    @Override
+                    public boolean onClick(@NonNull Overlay overlay)
+                    {
+                        infoWindow.setZIndex(10);
+                        infoWindow.setAlpha(0.9f);
+                        infoWindow.open(marker17);
+                        Toast.makeText(getApplication(), "제주 클릭", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+            }
+        });
+
+        MapView mapView = (MapView) findViewById(R.id.map_view);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
+    }
+
+    @Override
+    public void onMapReady(@NonNull NaverMap naverMap) {
+        this.naverMap = naverMap;
+
+        CameraPosition cameraPosition = new CameraPosition(
+                new LatLng(36, 128),
+                6
+        );
+        naverMap.setCameraPosition(cameraPosition);
+    }
+
+    private void setMark(Marker marker, double lat, double lng, int resourceID, int zIndex)
+    {
+        marker.setIconPerspectiveEnabled(true);
+        marker.setIcon(OverlayImage.fromResource(resourceID));
+        marker.setAlpha(0.8f);
+        marker.setPosition(new LatLng(lat, lng));
+        marker.setZIndex(10);
+        marker.setMap(naverMap);
+    }
+
+
+}
