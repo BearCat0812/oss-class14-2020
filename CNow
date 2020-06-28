@@ -1,0 +1,171 @@
+package com.example.myapplication;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+
+public class MainActivity extends Activity {
+
+    TextView text;
+    XmlPullParser xpp;
+    String key=" 1JEPDPn7mgAZdLC3srTaZbsCzkAv0IbvYpZaQPeTxHh64heLFEs21G0wx9qyYmkPlJJytCNJbywQepzArH0rfA%3D%3D ";
+    String data;
+
+    @Override
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        text= (TextView)findViewById(R.id.text);
+
+    }
+
+    public void mOnClick(View v){
+        switch( v.getId() ){
+            case R.id.button:
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        data= getXmlData();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                text.setText(data);
+                            }
+                        });
+                    }
+                }).start();
+                break;
+        }
+    }
+
+    String getXmlData(){
+        StringBuffer buffer=new StringBuffer();
+        String queryUrl="http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=1JEPDPn7mgAZdLC3srTaZbsCzkAv0IbvYpZaQPeTxHh64heLFEs21G0wx9qyYmkPlJJytCNJbywQepzArH0rfA%3D%3D&pageNo=4&numOfRows=4&startCreateDt=20200310&endCreateDt=20200315&";
+        try {
+            URL url= new URL(queryUrl);
+            InputStream is= url.openStream();
+            XmlPullParserFactory factory= XmlPullParserFactory.newInstance();
+            xpp= factory.newPullParser();
+            xpp.setInput( new InputStreamReader(is, "UTF-8") );
+            String tag;
+            xpp.next();
+            int eventType= xpp.getEventType();
+            while( eventType != XmlPullParser.END_DOCUMENT ){
+                switch( eventType ){
+                    case XmlPullParser.START_DOCUMENT:
+                        buffer.append("start XML parsing...\n\n");
+                        break;
+                    case XmlPullParser.START_TAG:
+                        tag= xpp.getName();
+                        if(tag.equals("item"));
+                        else if(tag.equals("accDefRate")){
+                            buffer.append("누적 확진률 : ");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("accExamCnt")){
+                            buffer.append("누적 검사 수 : ");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("accExamCompCnt")){
+                            buffer.append("누적 검사 완료 수 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("careCnt")){
+                            buffer.append("치료 중 환자 수 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("clearCnt")){
+                            buffer.append("격리 해제 수 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("createDt")){
+                            buffer.append("등록 일 시 분 초 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("  ,  ");
+                        }
+                        else if(tag.equals("deathCnt")){
+                            buffer.append("사망자 수 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("decideCnt")){
+                            buffer.append("확진자 수 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("examCnt")){
+                            buffer.append("검사 진행 수 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("resutlNegCnt")){
+                            buffer.append("결과 음성 수 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("seq")){
+                            buffer.append("게시글 번호 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("stateDt")){
+                            buffer.append("기준 일 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("stateTime")){
+                            buffer.append("기준 시간 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        else if(tag.equals("updateDt")){
+                            buffer.append("수정 일 시 분 초 :");
+                            xpp.next();
+                            buffer.append(xpp.getText());
+                            buffer.append("\n");
+                        }
+                        break;
+                    case XmlPullParser.TEXT:
+                        break;
+                    case XmlPullParser.END_TAG:
+                        tag= xpp.getName();
+                        if(tag.equals("item")) buffer.append("\n");
+                        break;
+                }
+                eventType= xpp.next();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        buffer.append("end XML parsing...\n");
+        return buffer.toString();
+    }
+}
