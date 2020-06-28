@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+
+                <Button
+                    android:id="@+id/button"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="2"
+
+                    android:onClick="mOnClick"
+
+                    android:text="국내 현황 확인"
+
+                    android:textSize="12sp" />
+
+
+
+        </LinearLayout>
+
+
+
+        <ScrollView
+
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent">
+
+
+
+                <TextView android:id="@+id/text"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+
+                    android:textSize="20sp"
+
+                    android:textStyle="bold"/>
+
+
+
+        </ScrollView>
+
+
+
+</LinearLayout>
